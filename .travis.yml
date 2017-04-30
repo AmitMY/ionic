@@ -1,5 +1,9 @@
 language: node_js
 node_js:
-  - "6"
+  - "7"
 
-script: npm run travis
+before_script:
+  - npm install -g gulp
+  - rvm use 2.2.2 --install --binary --fuzzy
+
+script: npm test
