@@ -22,7 +22,7 @@
   "scripts": {
     "test": "gulp validate",
     "test:generators": "jasmine-node ./tooling/spec",
-    "travis": "npm install -g gulp && npm run test",
+    "travis": "rvm use 2.2.2 --install --binary --fuzzy && npm install -g gulp && npm run test",
     "link": "gulp release.prepareReleasePackage && cd dist/ionic-angular && npm link"
   },
   "dependencies": {
