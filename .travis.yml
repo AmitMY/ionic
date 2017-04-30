@@ -2,8 +2,10 @@ language: node_js
 node_js:
   - "7"
 
+before_install:
+  - rvm install 2.1.5
+
 before_script:
   - npm install -g gulp
-  - rvm use 2.2.2 --install --binary --fuzzy
 
 script: npm test
