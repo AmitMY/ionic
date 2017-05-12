@@ -16,16 +16,14 @@ ion-reorder {
   font-size: 1.7em;
   opacity: .25;
 
+  transform: translate3d(160%, 0, 0);
   transition: transform 140ms ease-in;
 
   pointer-events: all;
   touch-action: manipulation;
 
-  &.reorder-end {
-    transform: translate3d(160%, 0, 0);
-  }
-
   &.reorder-start {
+    order: -1;
     transform: translate3d(-160%, 0, 0);
   }
 }

@@ -159,7 +159,7 @@ export class ItemReorder implements ItemReorderGestureDelegate {
   @Output() ionItemReorder: EventEmitter<ReorderIndexes> = new EventEmitter<ReorderIndexes>();
 
   /**
-   * @input {string} Which side of the view the menu should be placed. Default `"start"`.
+   * @input {string} Which side of the view the ion-reorder should be placed. Default `"end"`.
    */
   @Input() side: Side = 'end';
 

@@ -25,6 +25,7 @@
       <ion-item-sliding *ngFor="let item of items">
         <button ion-item (click)="clickedButton(item)">
           <h2>Sliding item {{item}}</h2>
+          <div item-right>right</div>
         </button>
         <ion-item-options side="right" icon-left>
           <button ion-button color='danger'>

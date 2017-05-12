@@ -278,7 +278,6 @@ import { Platform } from '../../platform/platform';
   template:
     '<ng-content select="[item-start],[item-left],ion-checkbox:not([item-end]):not([item-right])"></ng-content>' +
     '<div class="item-inner">' +
-      '<ion-reorder *ngIf="_reorderSide == \'start\'" class="reorder-start"></ion-reorder>' +
       '<div class="input-wrapper">' +
         '<ng-content select="ion-label"></ng-content>' +
         '<ion-label *ngIf="_viewLabel">' +
@@ -287,7 +286,7 @@ import { Platform } from '../../platform/platform';
         '<ng-content select="ion-select,ion-input,ion-textarea,ion-datetime,ion-range,[item-content]"></ng-content>' +
       '</div>' +
       '<ng-content select="[item-end],[item-right],ion-radio,ion-toggle"></ng-content>' +
-      '<ion-reorder *ngIf="_reorderSide == \'end\'" class="reorder-end"></ion-reorder>' +
+      '<ion-reorder *ngIf="_reorderSide !== null" [class.reorder-start]="_reorderSide == \'start\'"></ion-reorder>' +
     '</div>' +
     '<div class="button-effect"></div>',
   host: {
