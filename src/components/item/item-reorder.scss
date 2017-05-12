@@ -21,11 +21,11 @@ ion-reorder {
 
   pointer-events: all;
   touch-action: manipulation;
+}
 
-  &.reorder-start {
-    order: -1;
-    transform: translate3d(-160%, 0, 0);
-  }
+ion-reorder.reorder-start {
+  order: -1;
+  transform: translate3d(-160%, 0, 0);
 }
 
 ion-reorder ion-icon {
