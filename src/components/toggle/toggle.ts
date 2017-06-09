@@ -1,4 +1,4 @@
-import { AfterContentInit, NgZone, Component, ElementRef, HostListener, Input, OnDestroy, Optional, Renderer, ViewEncapsulation } from '@angular/core';
+import { AfterContentInit, Component, ElementRef, HostListener, Input, NgZone, OnDestroy, Optional, Renderer, ViewEncapsulation } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { Config } from '../../config/config';
@@ -52,28 +52,27 @@ import { ToggleGesture } from './toggle-gesture';
  */
 @Component({
   selector: 'ion-toggle',
-  template:
-    '<div class="toggle-icon">' +
-      '<div class="toggle-inner"></div>' +
-    '</div>' +
-    '<button role="checkbox" ' +
-            'type="button" ' +
-            'ion-button="item-cover" ' +
-            '[id]="id" ' +
-            '[attr.aria-checked]="_value" ' +
-            '[attr.aria-labelledby]="_labelId" ' +
-            '[attr.aria-disabled]="_disabled" ' +
-            'class="item-cover" disable-activated>' +
-    '</button>',
+  template: '<div class="toggle-icon">' +
+  '<div class="toggle-inner"></div>' +
+  '</div>' +
+  '<button role="checkbox" ' +
+  'type="button" ' +
+  'ion-button="item-cover" ' +
+  '[id]="id" ' +
+  '[attr.aria-checked]="_value" ' +
+  '[attr.aria-labelledby]="_labelId" ' +
+  '[attr.aria-disabled]="_disabled" ' +
+  'class="item-cover" disable-activated>' +
+  '</button>',
   host: {
     '[class.toggle-disabled]': '_disabled',
     '[class.toggle-checked]': '_value',
     '[class.toggle-activated]': '_activated',
   },
-  providers: [ { provide: NG_VALUE_ACCESSOR, useExisting: Toggle, multi: true } ],
+  providers: [{provide: NG_VALUE_ACCESSOR, useExisting: Toggle, multi: true}],
   encapsulation: ViewEncapsulation.None,
 })
-export class Toggle extends BaseInput<boolean> implements IonicTapInput, AfterContentInit, OnDestroy  {
+export class Toggle extends BaseInput<boolean> implements IonicTapInput, AfterContentInit, OnDestroy {
 
   _activated: boolean = false;
   _startX: number;
@@ -91,18 +90,16 @@ export class Toggle extends BaseInput<boolean> implements IonicTapInput, AfterCo
     this.value = val;
   }
 
-  constructor(
-    form: Form,
-    config: Config,
-    private _plt: Platform,
-    elementRef: ElementRef,
-    renderer: Renderer,
-    private _haptic: Haptic,
-    @Optional() item: Item,
-    private _gestureCtrl: GestureController,
-    private _domCtrl: DomController,
-    private _zone: NgZone,
-  ) {
+  constructor(form: Form,
+              config: Config,
+              private _plt: Platform,
+              elementRef: ElementRef,
+              renderer: Renderer,
+              private _haptic: Haptic,
+              @Optional() item: Item,
+              private _gestureCtrl: GestureController,
+              private _domCtrl: DomController,
+              private _zone: NgZone) {
     super(config, elementRef, renderer, 'toggle', false, form, item, null);
   }
 
@@ -118,13 +115,28 @@ export class Toggle extends BaseInput<boolean> implements IonicTapInput, AfterCo
   /**
    * @hidden
    */
-  _inputCheckHasValue() {}
+  _inputCheckHasValue() {
+  }
 
   /**
    * @hidden
    */
   _inputNormalize(val: any): boolean {
     return isTrueProperty(val);
+  }
+
+  /**
+   * @hidden
+   */
+  private _didMoveStart(start: number, amount: number, position: number) {
+    return this._plt.isRTL ? position - amount > start : position + amount < start;
+  }
+
+  /**
+   * @hidden
+   */
+  private _didMoveEnd(start: number, amount: number, position: number) {
+    return this._plt.isRTL ? position + amount > start  : position - amount < start;
   }
 
   /**
@@ -155,16 +167,15 @@ export class Toggle extends BaseInput<boolean> implements IonicTapInput, AfterCo
     let activated: boolean;
 
     if (this._value) {
-      if (currentX + 15 < this._startX) {
+      if (this._didMoveStart(this._startX, 15, currentX)) {
         dirty = true;
         value = false;
         activated = true;
       }
-
-    } else if (currentX - 15 > this._startX) {
+    } else if (this._didMoveStart(currentX, 15, this._startX)) {
       dirty = true;
       value = true;
-      activated = (currentX < this._startX + 5);
+      activated = this._didMoveEnd(this._startX, 5, currentX);
     }
 
     if (dirty) {
@@ -190,12 +201,12 @@ export class Toggle extends BaseInput<boolean> implements IonicTapInput, AfterCo
 
     this._zone.run(() => {
       if (this._value) {
-        if (this._startX + 4 > endX) {
+        if (this._didMoveEnd(this._startX, 4, endX)) {
           this.value = false;
           this._haptic.selection();
         }
 
-      } else if (this._startX - 4 < endX) {
+      } else if (this._didMoveEnd(endX, 4, this._startX)) {
         this.value = true;
         this._haptic.selection();
       }
