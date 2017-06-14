@@ -2,12 +2,13 @@ import { AfterViewInit, Component, ElementRef, Renderer2 } from '@angular/core';
 import { DomController } from '../../../../../../platform/dom-controller';
 import { PopoverController } from '../../../../../popover/popover-controller';
 import { AssistivePopover } from './assistive-popover/assistive-popover';
+import {Popover} from "../../../../../popover/popover";
 
 @Component({
   selector: 'assistive-touch',
   templateUrl: 'assistive-touch.html',
   host: {
-    '(click)': 'openControl()'
+    '(click)': 'openControl($event)'
   }
 })
 export class AssistiveTouchComponent implements AfterViewInit {
@@ -18,6 +19,8 @@ export class AssistiveTouchComponent implements AfterViewInit {
 
   private elemWidthOffset: number;
   private elemHeightOffset: number;
+
+  private popover: Popover = null;
 
   constructor(private popoverCtrl: PopoverController,
               public element: ElementRef,
@@ -80,7 +83,12 @@ export class AssistiveTouchComponent implements AfterViewInit {
     });
   }
 
-  openControl() {
-    this.popoverCtrl.create(AssistivePopover).present();
+  openControl($event: Event) {
+    if (this.popover !== null)
+      return;
+
+    this.popover = this.popoverCtrl.create(AssistivePopover);
+    this.popover.present({ ev: $event });
+    this.popover.onDidDismiss(() => this.popover = null);
   }
 }

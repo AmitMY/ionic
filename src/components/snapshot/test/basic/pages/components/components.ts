@@ -180,7 +180,7 @@ import { AppComponent as TabsBasic } from '../../../../../tabs/test/basic/app/ap
 import { AppComponent as TabsColors } from '../../../../../tabs/test/colors/app/app.component';
 import { AppComponent as TabsEvents } from '../../../../../tabs/test/events/app.module';
 import { TabsPage as TabsGhost } from '../../../../../tabs/test/ghost/app.module';
-import { AppComponent as TabsLifecycle } from '../../../../../tabs/test/lifecyles/app.module';
+import { AppComponent as TabsLifecycle } from '../../../../../tabs/test/lifecycles/app.module';
 import { AppComponent as TabsTabBarScenarios } from '../../../../../tabs/test/tab-bar-scenarios/app/app.component';
 import { AppComponent as TabsTop } from '../../../../../tabs/test/top/app.module';
 
@@ -213,18 +213,18 @@ export type ComponentsGroup = { name: string, components: Array<{ name: string, 
 export class ComponentsPage {
   components: Array<ComponentsGroup> = [
     {
-      name: 'Action Sheet',
+      name: 'action-sheet',
       components: [
         {name: 'basic', component: ActionSheetBasic}
       ]
     }, {
-      name: 'Alert',
+      name: 'alert',
       components: [
         {name: 'basic', component: AlertBasic},
         {name: 'dismiss', component: AlertDismiss}
       ]
     }, {
-      name: 'App',
+      name: 'app',
       components: [
         {name: 'animations', component: AppAnimations},
         {name: 'cordova', component: AppCordova},
@@ -234,18 +234,18 @@ export class ComponentsPage {
         {name: 'utilities', component: AppUtilities}
       ]
     }, {
-      name: 'Avatar',
+      name: 'avatar',
       components: []
     }, {
-      name: 'Backdrop',
+      name: 'backdrop',
       components: []
     }, {
-      name: 'Badge',
+      name: 'badge',
       components: [
         {name: 'basic', component: BadgeBasic}
       ]
     }, {
-      name: 'Button',
+      name: 'button',
       components: [
         {name: 'anchors', component: ButtonAnchors},
         {name: 'attributes', component: ButtonAttributes},
@@ -262,7 +262,7 @@ export class ComponentsPage {
         {name: 'sizes', component: ButtonSizes}
       ]
     }, {
-      name: 'Card',
+      name: 'card',
       components: [
         {name: 'advanced', component: CardAdvanced},
         {name: 'basic', component: CardBasic},
@@ -273,17 +273,17 @@ export class ComponentsPage {
         {name: 'social', component: CardSocial}
       ]
     }, {
-      name: 'Checkbox',
+      name: 'checkbox',
       components: [
         {name: 'basic', component: CheckboxBasic}
       ]
     }, {
-      name: 'Chip',
+      name: 'chip',
       components: [
         {name: 'basic', component: ChipBasic}
       ]
     }, {
-      name: 'Content',
+      name: 'content',
       components: [
         {name: 'basic', component: ContentBasic},
         {name: 'fullscreen', component: ContentFullscreen},
@@ -292,7 +292,7 @@ export class ComponentsPage {
         {name: 'scroll-down-on-load', component: ContentScrollDownOnLoad}
       ]
     }, {
-      name: 'Datetime',
+      name: 'datetime',
       components: [
         {name: 'basic', component: DatetimeBasic},
         {name: 'form', component: DatetimeForm},
@@ -300,12 +300,12 @@ export class ComponentsPage {
         {name: 'labels', component: DatetimeLabels}
       ]
     }, {
-      name: 'Fab',
+      name: 'fab',
       components: [
         {name: 'basic', component: FabBasic}
       ]
     }, {
-      name: 'Grid',
+      name: 'grid',
       components: [
         {name: 'alignment', component: GridAlignment},
         {name: 'basic', component: GridBasic},
@@ -314,12 +314,12 @@ export class ComponentsPage {
         {name: 'responsive', component: GridResponsive}
       ]
     }, {
-      name: 'Icon',
+      name: 'icon',
       components: [
         {name: 'basic', component: IconBasic}
       ]
     }, {
-      name: 'Img',
+      name: 'img',
       components: [
         {name: 'basic', component: ImgBasic},
         {name: 'cards', component: ImgCards},
@@ -327,14 +327,14 @@ export class ComponentsPage {
         {name: 'list', component: ImgList}
       ]
     }, {
-      name: 'Infinite Scroll',
+      name: 'infinite-scroll',
       components: [
         {name: 'basic', component: InfiniteScrollBasic},
         {name: 'position-top', component: InfiniteScrollPositionTop},
         {name: 'short-list', component: InfiniteScrollShortList}
       ]
     }, {
-      name: 'Inputs',
+      name: 'inputs',
       components: [
         {name: 'basic-form', component: InputBasicForm},
         {name: 'clear-after-edit', component: InputClearAfterEdit},
@@ -352,7 +352,7 @@ export class ComponentsPage {
         {name: 'stacked-labels', component: InputStackedLabels}
       ]
     }, {
-      name: 'Item',
+      name: 'item',
       components: [
         {name: 'buttons', component: ItemButtons},
         {name: 'colors', component: ItemColors},
@@ -367,10 +367,10 @@ export class ComponentsPage {
         {name: 'text', component: ItemText}
       ]
     }, {
-      name: 'Label',
+      name: 'label',
       components: []
     }, {
-      name: 'List',
+      name: 'list',
       components: [
         {name: 'chat-list', component: ListChatList},
         {name: 'header-scenarios', component: ListHeaderScenarios},
@@ -381,13 +381,13 @@ export class ComponentsPage {
         {name: 'sticky', component: ListSticky},
       ]
     }, {
-      name: 'Loading',
+      name: 'loading',
       components: [
         {name: 'basic', component: LoadingBasic},
         {name: 'tabs', component: LoadingTabs}
       ]
     }, {
-      name: 'Menu',
+      name: 'menu',
       components: [
         {name: 'basic', component: MenuBasic},
         // {name: 'disable-swipe', component: MenuDisableSwipe},
@@ -398,12 +398,12 @@ export class ComponentsPage {
         {name: 'reveal', component: MenuReveal},
       ]
     }, {
-      name: 'Modal',
+      name: 'modal',
       components: [
         {name: 'basic', component: ModalBasic}
       ]
     }, {
-      name: 'Nav',
+      name: 'nav',
       components: [
         {name: 'basic', component: NavBasic},
         {name: 'child-navs', component: NavChildNavs},
@@ -414,69 +414,69 @@ export class ComponentsPage {
         {name: 'worst-case', component: NavWorstCase}
       ]
     }, {
-      name: 'Note',
+      name: 'note',
       components: []
     }, {
-      name: 'Option',
+      name: 'option',
       components: []
     }, {
-      name: 'Picker',
+      name: 'picker',
       components: [
         {name: 'basic', component: PickerBasic}
       ]
     }, {
-      name: 'Popover',
+      name: 'popover',
       components: [
         {name: 'basic', component: PopoverBasic}
       ]
     }, {
-      name: 'Radio',
+      name: 'radio',
       components: [
         {name: 'basic', component: RadioBasic}
       ]
     }, {
-      name: 'Range',
+      name: 'range',
       components: [
         {name: 'basic', component: RangeBasic}
       ]
     }, {
-      name: 'Refresher',
+      name: 'refresher',
       components: [
         {name: 'basic', component: RefresherBasic},
         // {name: 'navigation', component: RefresherNavigation}
       ]
     }, {
-      name: 'Scroll',
+      name: 'scroll',
       components: [
         {name: 'basic', component: ScrollBasic}
       ]
     }, {
-      name: 'Searchbar',
+      name: 'searchbar',
       components: [
         {name: 'basic', component: SearchbarBasic},
         {name: 'nav', component: SearchbarNav},
         {name: 'toolbar', component: SearchbarToolbar},
       ]
     }, {
-      name: 'Segment',
+      name: 'segment',
       components: [
         {name: 'basic', component: SegmentBasic},
         {name: 'nav', component: SegmentNav},
         {name: 'swipe', component: SegmentSwipe},
       ]
     }, {
-      name: 'Select',
+      name: 'select',
       components: [
         {name: 'multiple-value', component: SelectMultipleValue},
         {name: 'single-value', component: SelectSingleValue}
       ]
     }, {
-      name: 'Show-hide-when',
+      name: 'show-hide-when',
       components: [
         {name: 'basic', component: ShowHideWhenBasic}
       ]
     }, {
-      name: 'Show-hide-when',
+      name: 'slides',
       components: [
         {name: 'basic', component: SlidesBasic},
         {name: 'control', component: SlidesControl},
@@ -489,13 +489,13 @@ export class ComponentsPage {
         {name: 'scroll', component: SlidesScroll},
       ]
     }, {
-      name: 'Spinner',
+      name: 'spinner',
       components: [
         {name: 'basic', component: SpinnerBasic},
         {name: 'colors', component: SpinnerColors}
       ]
     },  {
-      name: 'Split-pane',
+      name: 'split-pane',
       components: [
         {name: 'basic', component: SplitPaneBasic},
         {name: 'menus', component: SplitPaneMenus},
@@ -503,7 +503,7 @@ export class ComponentsPage {
         {name: 'tabs', component: SplitPaneTabs}
       ]
     },  {
-      name: 'Tabs',
+      name: 'tabs',
       components: [
         {name: 'advanced', component: TabsAdvanced},
         {name: 'badges', component: TabsBadges},
@@ -511,42 +511,37 @@ export class ComponentsPage {
         {name: 'colors', component: TabsColors},
         {name: 'events', component: TabsEvents},
         {name: 'ghost', component: TabsGhost},
-        {name: 'lifecyles', component: TabsLifecycle},
+        {name: 'lifecycles', component: TabsLifecycle},
         {name: 'tab-bar-scenarios', component: TabsTabBarScenarios},
         {name: 'top', component: TabsTop}
       ]
     },  {
-      name: 'Thumbnail',
+      name: 'thumbnail',
       components: []
     },  {
-      name: 'Toast',
+      name: 'toast',
       components: [
         {name: 'basic', component: ToastBasic}
       ]
-    },  {
-      name: 'Toggle',
-      components: [
-        {name: 'basic', component: ToastBasic}
-      ]
-    },  {
-      name: 'Toggle',
+    }, {
+      name: 'toggle',
       components: [
         {name: 'basic', component: ToggleBasic}
       ]
     },  {
-      name: 'Toolbar',
+      name: 'toolbar',
       components: [
         {name: 'basic', component: ToolbarBasic},
         {name: 'colors', component: ToolbarColors},
         {name: 'scenarios', component: ToolbarScenarios}
       ]
     },  {
-      name: 'Typography',
+      name: 'typography',
       components: [
         {name: 'basic', component: TypographyBasic}
       ]
     },  {
-      name: 'Virtual-scroll',
+      name: 'virtual-scroll',
       components: [
         {name: 'basic', component: VirtualScrollBasic},
         {name: 'cards', component: VirtualScrollCards},

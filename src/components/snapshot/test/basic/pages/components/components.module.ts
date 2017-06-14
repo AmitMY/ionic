@@ -179,7 +179,7 @@ import {AppModule as TabsBasic} from '../../../../../tabs/test/basic/app/app.mod
 import {AppModule as TabsColors} from '../../../../../tabs/test/colors/app/app.module';
 import {AppModule as TabsEvents} from '../../../../../tabs/test/events/app.module';
 import {AppModule as TabsGhost} from '../../../../../tabs/test/ghost/app.module';
-import {AppModule as TabsLifecycle} from '../../../../../tabs/test/lifecyles/app.module';
+import {AppModule as TabsLifecycle} from '../../../../../tabs/test/lifecycles/app.module';
 import {AppModule as TabsTabBarScenarios} from '../../../../../tabs/test/tab-bar-scenarios/app/app.module';
 import {AppModule as TabsTop} from '../../../../../tabs/test/top/app.module';
 

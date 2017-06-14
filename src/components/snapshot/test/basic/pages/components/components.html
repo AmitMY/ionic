@@ -6,9 +6,10 @@
 
 <ion-content>
   <ion-list>
-    <ion-item-group *ngFor="let componentItem of components">
+    <ion-item-group *ngFor="let componentItem of components" [ngClass]="'component-' + componentItem.name">
       <ion-item-divider>{{componentItem.name}}</ion-item-divider>
-      <button ion-item *ngFor="let component of componentItem.components" (click)="open(component.component)">
+      <button ion-item *ngFor="let component of componentItem.components"
+              (click)="open(component.component)" [ngClass]="'component-test-' + component.name">
         <ion-label>{{component.name}}</ion-label>
       </button>
     </ion-item-group>
