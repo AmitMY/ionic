@@ -65,10 +65,9 @@ function filterE2eTestfiles() {
         console.log('Cannot find E2E test ', join(folderInfo.componentName, 'test', folderInfo.componentTest), '. Make sure that the test exists and you are passing the correct folder.');
         return [];
       }
-      const filtered = entryPoints.filter(entryPoint => {
+      return entryPoints.filter(entryPoint => {
         return entryPoint.indexOf(join(folderInfo.componentName, 'test', folderInfo.componentTest)) >= 0;
       });
-      return filtered;
     }
     return entryPoints;
   });
@@ -158,20 +157,29 @@ function applyTemplate(filePathContent: Map<string, string>) {
   const templateFileContent = readFileSync(join(SCRIPTS_ROOT, 'e2e', 'e2e.template.js'));
   const templater = template(templateFileContent.toString());
   const modifiedMap = new Map<string, string>();
+  const directions = argv.directions ? ['ltr', 'rtl'] : ['ltr'];
   const platforms = ['android', 'ios', 'windows'];
+  const themes = argv.themes ? ['light', 'dark'] : ['light'];
+
   filePathContent.forEach((fileContent: string, filePath: string) => {
     const srcRelativePath = relative(SRC_ROOT, dirname(filePath));
     const wwwRelativePath = join(srcRelativePath, 'www');
-    platforms.forEach(platform => {
-      const platformContents = templater({
-        contents: fileContent,
-        buildConfig: buildConfig,
-        relativePath: wwwRelativePath,
-        platform: platform,
-        relativePathBackwardsCompatibility: dirname(wwwRelativePath)
+    directions.forEach(direction => {
+      platforms.forEach(platform => {
+        themes.forEach(theme => {
+          const platformContents = templater({
+            contents: fileContent,
+            buildConfig: buildConfig,
+            relativePath: wwwRelativePath,
+            direction: direction,
+            platform: platform,
+            theme: theme,
+            relativePathBackwardsCompatibility: dirname(wwwRelativePath)
+          });
+          const newFilePath = join(wwwRelativePath, `${direction}.${platform}.${theme}.e2e.js`);
+          modifiedMap.set(newFilePath, platformContents);
+        });
       });
-      const newFilePath = join(wwwRelativePath, `${platform}.e2e.js`);
-      modifiedMap.set(newFilePath, platformContents);
     });
   });
   return modifiedMap;
